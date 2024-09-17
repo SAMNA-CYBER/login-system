@@ -7,7 +7,12 @@ const session = require('express-session');
 // Mock credentials
 const username = 'a@gmail.com';
 const password = 'a';
+// const user = [
+//     {email : 'a@gmail.com', pass : 'a'},
+//     {email : 'b@gmail.com', pass : 'b'},
 
+
+// ]
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -70,8 +75,8 @@ app.get('/logout', (req, res) => {
             console.error('Failed to destroy session:', err);
             return res.status(500).send('Failed to logout');
         }
-        res.redirect('/'); // Redirect to login page after logout
+        res.redirect('/home'); // Redirect to login page after logout
     });
 });
 
-app.listen(3003, () => console.log('Server running on port 3003'));
+app.listen(3003, () => console.log('Server running on http://localhost:3003'));
